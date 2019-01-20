@@ -20,10 +20,12 @@
 [download-image]: https://img.shields.io/npm/dm/egg-kafka-node.svg?style=flat-square
 [download-url]: https://npmjs.org/package/egg-kafka-node
 
-该插件是[kafka-node](https://github.com/SOHU-Co/kafka-node) 的封装, 是方便在egg.js 环境下使用的一个egg 风格的插件, 并提供了方便发送给 kafka 消息的方法 部分详细配置请参考 [https://github.com/SOHU-Co/kafka-node](https://github.com/SOHU-Co/kafka-node)
 
 - [English](README.md)
 - [简体中文](README.zh_CN.md)
+
+该插件是[kafka-node](https://github.com/SOHU-Co/kafka-node) 的封装, 方便在egg.js 环境下使用的一个egg风格的插件, 并提供了方便的api发送给kafka消息的方法 部分详细配置请参考 [https://github.com/SOHU-Co/kafka-node](https://github.com/SOHU-Co/kafka-node)
+
 
 ## 依赖说明
 
@@ -109,10 +111,10 @@ egg-project
 |   ├── config.local.js (optional)
 |   └── config.unittest.js (optional)
 
-
+
 ```  
 
-> Note: kafka配置下 生产者配置 producerOption 配置的 topics 必须在{app-root}/kafka 目录下创建对应的topic。kafka 会自动读取topic 目录下对应的Consumer.js ，并自动设置文件名前缀对应的 key 名， 该key需要在sendMessage 时提供 这个 key， 方便业务区分
+> Note: kafka配置下 生产者配置 producerOption 配置的topics必须在{app-root}/kafka 目录下创建对应的topic。kafka 会自动读取topic 目录下对应的Consumer.js ，并自动设置文件名前缀对应的 key 名， 该key需要在sendMessage 时提供 这个 key， 方便业务区分
 
 ## 使用案例
 
@@ -121,8 +123,8 @@ egg-project
 class IndexController extends Controller {
   async index() {
     await this.ctx.kafka.sendMessage({
-      topic: 'someTopic', // 指定 kafka 目录下 的 topic 
-      key: 'someKey', // 指定 kafka 下的 topic 目录 对应key 的consumer
+      topic: 'someTopic', // 指定 kafka 目录下 的topic 
+      key: 'someKey', // 指定 kafka 下的 topic 目录 对应key的consumer
       message: JSON.stringify({
         username: 'JohnApache',
         userId: 10001,
@@ -133,8 +135,8 @@ class IndexController extends Controller {
 
   async some() {
     this.ctx.kafka.sendMessageSync({
-      topic: 'someTopic', // 指定 kafka 目录下 的 topic 
-      key: 'someKey', // 指定 kafka 下的 topic 目录 对应key 的consumer
+      topic: 'someTopic', // 指定 kafka 目录下的 topic 
+      key: 'someKey', // 指定 kafka 下的 topic 目录 对应key 的consumer
       message: JSON.stringify({
         username: 'JohnApache',
         userId: 10001,
