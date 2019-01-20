@@ -116,6 +116,8 @@ egg-project
 
 > Note: kafka配置下 生产者配置 producerOption 配置的topics必须在{app-root}/kafka 目录下创建对应的topic。kafka 会自动读取topic 目录下对应的Consumer.js ，并自动设置文件名前缀对应的 key 名， 该key需要在sendMessage 时提供 这个 key， 方便业务区分
 
+> Note: 你必须设置 app.config.baseDir， egg-kafka-node 需要基于 这个baseDir 去加载所使用的consumers
+
 ## 使用案例
 
 ```js

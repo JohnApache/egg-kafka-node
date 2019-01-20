@@ -106,6 +106,10 @@ egg-project
 ```  
 > Note: The producer option topics of the kafkaNode configuration must create a corresponding topic directory under the {app-root}/kafka directory. Kafka-node automatically reads the file containing the'Consumers'filename under the topic, and the key needs to be passed in when sendMessage to facilitate business differentiation.
 
+
+> Note: You must set app.config.baseDir, kafka need to load consumers base on the baseDir.
+
+
 ## Example
 
 ```js
