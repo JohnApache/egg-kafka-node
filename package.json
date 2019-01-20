@@ -53,12 +53,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eggjs/egg-kafka-node.git"
+    "url": "git+https://github.com/JohnApache/egg-kafka-node.git"
   },
   "bugs": {
-    "url": "https://github.com/eggjs/egg/issues"
+    "url": "https://github.com/JohnApache/egg-kafka-node/issues"
   },
-  "homepage": "https://github.com/eggjs/egg-kafka-node#readme",
+  "homepage": "https://github.com/JohnApache/egg-kafka-node#readme",
   "author": "JohnApache",
   "license": "MIT"
 }
