@@ -52,7 +52,11 @@ exports.kafkaNode = {
   consumerOption: [{
     groupId: 'group1', // consumerGroup's groupId
     topics: [ 'testTopic1' ], // topics under the same consumer group 
-    options: {}, // relevant configuration for each consumer group, more documentation please visit kafka-node
+    options: {
+      fetchMaxWaitMs: 100,
+      fetchMinBytes: 1,
+      fetchMaxBytes: 1024 * 1024,
+    }, // relevant configuration for each consumer group, more documentation please visit kafka-node
   }, {
     groupId: 'group2',
     topics: [ 'testTopic2' ],

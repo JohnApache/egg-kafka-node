@@ -8,13 +8,15 @@ exports.kafkaNode = {
   consumerOption: [{
     groupId: 'group1',
     topics: [ 'testTopic1' ],
-    consumerOption: {
+    options: {
+      fetchMaxWaitMs: 100,
+      fetchMinBytes: 1,
       fetchMaxBytes: 1024 * 1024,
-    },
+    }, // 每个消费组对应的相关 consumerGroup 配置
   }, {
     groupId: 'group2',
     topics: [ 'testTopic2', 'testTopic3' ],
-    consumerOption: {},
+    options: {},
   }, {
     groupId: 'group3',
     topics: [ 'testTopic3' ],
