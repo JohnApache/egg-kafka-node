@@ -52,11 +52,11 @@ exports.kafkaNode = {
   consumerOption: [{
     groupId: 'group1', // consumerGroup's groupId
     topics: [ 'testTopic1' ], // topics under the same consumer group 
-    consumerOption: {}, // relevant configuration for each consumer group, more documentation please visit kafka-node
+    options: {}, // relevant configuration for each consumer group, more documentation please visit kafka-node
   }, {
     groupId: 'group2',
     topics: [ 'testTopic2' ],
-    consumerOption: {},
+    options: {},
   }, {
     groupId: 'group3',
     topics: [ 'testTopic3' ],
@@ -102,7 +102,6 @@ egg-project
 |   ├── config.local.js (optional)
 |   └── config.unittest.js (optional)
 
-
 ```  
 > Note: The producer option topics of the kafkaNode configuration must create a corresponding topic directory under the {app-root}/kafka directory. Kafka-node automatically reads the file containing the'Consumers'filename under the topic, and the key needs to be passed in when sendMessage to facilitate business differentiation.
 
