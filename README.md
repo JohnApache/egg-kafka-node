@@ -121,7 +121,7 @@ class IndexController extends Controller {
     await this.ctx.kafka.sendMessage({
       topic: 'someTopic', // Specify topics in the Kafka directory
       key: 'someKey', // Specify consumer for the corresponding key under topic
-      message: JSON.stringify({
+      messages: JSON.stringify({
         username: 'JohnApache',
         userId: 10001,
         gender: 0
@@ -133,7 +133,7 @@ class IndexController extends Controller {
     this.ctx.kafka.sendMessageSync({
       topic: 'someTopic', // Specify topics in the Kafka directory
       key: 'someKey', // Specify consumer for the corresponding key under topic
-      message: JSON.stringify({
+      messages: JSON.stringify({
         username: 'JohnApache',
         userId: 10001,
         gender: 0

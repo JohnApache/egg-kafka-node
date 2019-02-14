@@ -133,7 +133,7 @@ class IndexController extends Controller {
     await this.ctx.kafka.sendMessage({
       topic: 'someTopic', // 指定 kafka 目录下 的topic 
       key: 'someKey', // 指定 kafka 下的 topic 目录 对应key的consumer
-      message: JSON.stringify({
+      messages: JSON.stringify({
         username: 'JohnApache',
         userId: 10001,
         gender: 0
@@ -145,7 +145,7 @@ class IndexController extends Controller {
     this.ctx.kafka.sendMessageSync({
       topic: 'someTopic', // 指定 kafka 目录下的 topic 
       key: 'someKey', // 指定 kafka 下的 topic 目录 对应key 的consumer
-      message: JSON.stringify({
+      messages: JSON.stringify({
         username: 'JohnApache',
         userId: 10001,
         gender: 0
