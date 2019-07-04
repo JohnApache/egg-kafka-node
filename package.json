@@ -16,7 +16,8 @@
   ],
   "dependencies": {
     "eventsproxy": "^1.3.0",
-    "kafka-node": "^4.0.0"
+    "kafka-node": "^4.0.0",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "autod": "^3.0.0",
@@ -39,7 +40,9 @@
     "lint": "eslint .",
     "ci": "egg-bin pkgfiles --check && npm run lint && npm run cov",
     "pkgfiles": "egg-bin pkgfiles",
-    "autod": "autod"
+    "autod": "autod",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "files": [
     "app",
@@ -61,5 +64,6 @@
   },
   "homepage": "https://github.com/JohnApache/egg-kafka-node#readme",
   "author": "JohnApache",
-  "license": "MIT"
+  "license": "MIT",
+  "snyk": true
 }
