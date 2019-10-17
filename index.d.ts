@@ -1,6 +1,6 @@
 interface MessageType {
     topic: string,
-    key: string, // Specify consumer for the corresponding key under topic
+    key?: string, // Specify consumer for the corresponding key under topic
     messages: string | string[]
 }
 
