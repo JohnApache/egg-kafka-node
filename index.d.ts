@@ -1,11 +1,13 @@
-interface MessageType {
-    topic: string,
-    key?: string, // Specify consumer for the corresponding key under topic
-    messages: string | string[]
-}
-
 declare module 'egg' {
-    
+
+    type UnitMessage = string | Buffer;
+
+    interface MessageType {
+        topic: string,
+        key?: string | Buffer, // Specify consumer for the corresponding key under topic
+        messages: UnitMessage | UnitMessage[]
+    }
+
     export interface Application {
         kafka: {
             sendMessage(msg: MessageType): Promise<any>

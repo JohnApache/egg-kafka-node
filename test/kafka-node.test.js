@@ -31,12 +31,30 @@ describe('test/kafka-node.test.js', () => {
 
   it('app.kafka.sendMessage can publish a message to kafka', async () => {
     const kafka = app.kafka;
-    const data = await kafka.sendMessage({
-      topic: 'testTopic1',
-      key: 'Some',
-      message: `this is a message ${new Date()} ${Math.random()}`,
-    });
-    assert(data.testTopic1);
+    try {
+      await kafka.sendMessage({
+        topic: 'testTopic1',
+        key: 'Some',
+        messages: `this is a message ${new Date()} ${Math.random()}`,
+      });
+      assert(true);
+    } catch (error) {
+      assert(false);
+    }
+  });
+
+  it('app.kafka.sendMessage can publish a buffer message ', async () => {
+    const kafka = app.kafka;
+    try {
+      await kafka.sendMessage({
+        topic: 'testTopic1',
+        key: Buffer.from('Some'),
+        messages: Buffer.from(`this is a message ${new Date()} ${Math.random()}`),
+      });
+      assert(true);
+    } catch (error) {
+      assert(false);
+    }
   });
 
   it('app.kafka.sendMessageSync also can publish a message to kafka by a sync way', () => {
@@ -44,7 +62,7 @@ describe('test/kafka-node.test.js', () => {
     kafka.sendMessageSync({
       topic: 'testTopic1',
       key: 'Some',
-      message: `this is a message ${new Date()} ${Math.random()}`,
+      messages: `this is a message ${new Date()} ${Math.random()}`,
     }, () => {
       assert(true);
     }, () => {
@@ -59,7 +77,7 @@ describe('test/kafka-node.test.js', () => {
       await kafka.sendMessage({
         topic: 'testTopic1',
         key: 'Some',
-        message: `this is a message ${new Date()} ${Math.random()}`,
+        messages: `this is a message ${new Date()} ${Math.random()}`,
       });
     }
 
@@ -67,7 +85,7 @@ describe('test/kafka-node.test.js', () => {
       await kafka.sendMessage({
         topic: 'testTopic2',
         key: 'Every',
-        message: `this is a message ${new Date()} ${Math.random()}`,
+        messages: `this is a message ${new Date()} ${Math.random()}`,
       });
     }
 
@@ -76,7 +94,7 @@ describe('test/kafka-node.test.js', () => {
       await kafka.sendMessageSync({
         topic: 'testTopic3',
         key: 'New',
-        message: `this is a message ${new Date()} ${Math.random()}`,
+        messages: `this is a message ${new Date()} ${Math.random()}`,
       });
     }
 
