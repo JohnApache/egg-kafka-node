@@ -15,7 +15,7 @@
     "egg-kafka-node"
   ],
   "dependencies": {
-    "eventsproxy": "^1.3.0",
+    "eventsproxy": "^1.3.3",
     "kafka-node": "^4.0.0"
   },
   "devDependencies": {
