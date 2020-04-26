@@ -1,6 +1,6 @@
 {
   "name": "egg-kafka-node",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "kafka plugin for egg.js",
   "eggPlugin": {
     "name": "kafkaNode"
