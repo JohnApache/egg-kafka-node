@@ -32,4 +32,5 @@ exports.kafkaNode = {
     partition: 0,
     attributes: 0,
   },
+  baseConsumersDir: './app/kafka', // 支持设置消费者文件的根目录
 };

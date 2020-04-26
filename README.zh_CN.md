@@ -81,6 +81,8 @@ exports.kafkaNode = {
     partition: 0,
     attributes: 0, // 发送消息的相关配置
   },
+  // 新配置 
+  baseConsumersDir: './app/kafka', // 支持设置读取消费者的根目录 默认是 ./app/kafka
 };
 ```
 
@@ -105,6 +107,7 @@ egg-project
 │       ├── someTopic (optional)  -------> topic name of kafka
 │            ├── someKey1Consumer.js(optional)  ------> `someKey1` is a key of someTopic
 |            └── someKey2Consumer.js(optional)  ------> `someKey2` is an another key of someTopic
+|            └── someKey3Consumer.ts(optional)  ------> 支持加载 ts 文件格式的消费者
 ├── config
 |   ├── plugin.js
 |   ├── config.default.js

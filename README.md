@@ -62,6 +62,7 @@ exports.kafkaNode = {
     groupId: 'group3',
     topics: [ 'testTopic3' ],
   }],
+  
   // HighLevelProducer option, more documentation please visit kafka-node
   producerOption: {
     requireAcks: 1, 
@@ -74,6 +75,8 @@ exports.kafkaNode = {
     partition: 0,
     attributes: 0, // send message option
   },
+  // NewConfig 
+  baseConsumersDir: './app/kafka', // support read consumers files base dir
 };
 ```
 
@@ -95,6 +98,7 @@ egg-project
 │       ├── someTopic (optional)  -------> topic name of kafka
 │            ├── someKey1Consumer.js(optional)  ------> `someKey1` is a key of someTopic
 |            └── someKey2Consumer.js(optional)  ------> `someKey2` is an another key of someTopic
+|            └── someKey3Consumer.ts(optional)  ------> support load ts file consumers
 ├── config
 |   ├── plugin.js
 |   ├── config.default.js

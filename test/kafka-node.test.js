@@ -101,5 +101,22 @@ describe('test/kafka-node.test.js', () => {
     assert(true);
   });
 
+  it('support consume by ts files', done => {
+    const kafka = app.kafka;
+    kafka.sendMessageSync({
+      topic: 'testTopic1',
+      key: 'Some2',
+      messages: `this is a message ${new Date()} ${Math.random()}`,
+    }, () => {
+      setTimeout(() => {
+        assert(true);
+        done();
+      }, 5000);
+    }, () => {
+      assert(false);
+    });
+
+  });
+
 });
 
