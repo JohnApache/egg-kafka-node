@@ -1,3 +1,4 @@
+import 'egg';
 declare module 'egg' {
 
     type UnitMessage = string | Buffer;
@@ -8,14 +9,14 @@ declare module 'egg' {
         messages: UnitMessage | UnitMessage[]
     }
 
-    export interface Application {
+    interface Application {
         kafka: {
             sendMessage(msg: MessageType): Promise<any>
             sendMessageSync(msg: MessageType, scb: (data: any) => void, ecb: (err: any) => void): void
         };
-    };
+    }
 
-    export interface Context {
+    interface Context {
         kafka: {
             sendMessage(msg: MessageType): Promise<any>
             sendMessageSync(msg: MessageType, scb: (data: any) => void, ecb: (err: any) => void): void
