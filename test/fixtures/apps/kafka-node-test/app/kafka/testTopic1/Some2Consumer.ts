@@ -1,3 +1,4 @@
+import {Context} from 'egg'
 interface IMessage {
   topic: string;
   key: string;
@@ -11,13 +12,14 @@ const asyncTsTask = (topic: string, key: string, value: any) => {
   });
 };
 
-
-
 class Some2Subscription {
+  constructor(public ctx: Context) {}
   async subscribe(message: Partial<IMessage> = {}) {
     const { topic = '', key = '', value = '' } = message || {};
     const msg = await asyncTsTask(topic, key, value);
     console.log(msg);
+    const text = await this.ctx.service.home.find();
+    console.log(text);
   }
 }
 
