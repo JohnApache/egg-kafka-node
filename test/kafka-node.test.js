@@ -118,5 +118,21 @@ describe('test/kafka-node.test.js', () => {
 
   });
 
+  it('support consume message without key params', done => {
+    const kafka = app.kafka;
+    kafka.sendMessageSync({
+      topic: 'testTopic1',
+      messages: `this is a message ${new Date()} ${Math.random()}`,
+    }, () => {
+      setTimeout(() => {
+        assert(true);
+        done();
+      }, 5000);
+    }, () => {
+      assert(false);
+    });
+
+  });
+
 });
 
