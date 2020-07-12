@@ -4,7 +4,7 @@
 
 const asyncTask = (topic, key, value) => {
   return new Promise(resolve => {
-    resolve(`[Consumer] test message: ${topic} : ${key} : ${value} : ${new Date()}`);
+    resolve(`[Common Subscription] test message: ${topic} : ${key} : ${value} : ${new Date()}`);
   });
 };
 
